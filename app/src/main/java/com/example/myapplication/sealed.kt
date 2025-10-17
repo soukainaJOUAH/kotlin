@@ -15,6 +15,13 @@ data class Cercle(val Rayon:Double):Forme(){
 
     override fun aire()=Math.PI *Rayon*Rayon
 
+
+
+
+
+
+
+
 }
 fun afficheraire(forme:Forme){
     when (forme){
