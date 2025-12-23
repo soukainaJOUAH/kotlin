@@ -69,7 +69,7 @@ class GestionBanque : InterfaceBanque {
     override
     fun getCapital(): Double {
         var capital = 0.0
-        capital = listComptes.sumOf { it.solde }
+        //capital = listComptes.sumOf { it.solde }
         for (c in listComptes){
             capital = capital + c.solde
         }
@@ -99,6 +99,31 @@ class GestionBanque : InterfaceBanque {
 }
 
 fun main(){
+
+
+    val compte1= Compte("aa22",2000.0,"soukaina",TypeCompte.PERSONNE)
+    val compte2= Compte("BB22",3000.0,"HAKIMA",TypeCompte.PERSONNE)
+    val compte3= Compte("cc22",4000.0,"meryam",TypeCompte.PERSONNE)
+    val banque= GestionBanque()
+    println(banque.listComptes.size)
+    banque.ajouterCompte(compte1)
+    banque.ajouterCompte(compte2)
+    banque.ajouterCompte(compte3)
+    println(banque.listComptes.size)
+
+    val r= banque.rechercherCompte(3000.0,TypeCompte.PERSONNE)
+    println(r.size)
+    val res=banque.supprimerCompte(compte1)
+    println(res)
+
+    val capital=banque.getCapital()
+    println("le capital est :$capital")
+
+    println("le solde de soukaina avant le transfer"+compte1.solde)
+    println("le solde de hakima avant le transfer"+compte2.solde)
+
+
+
     val s = soustraction(5.0,3.0)
     print(s)
 }
